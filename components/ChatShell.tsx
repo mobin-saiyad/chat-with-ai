@@ -175,14 +175,14 @@ export default function ChatShell() {
             uploading={uploading}
             onDelete={setToDelete}
             onLightbox={setLightbox}
-            onReply={setReplyTo}
+            // onReply={setReplyTo}
           />
 
           <MessageInput
             onSend={handleSend}
             uploading={uploading}
-            replyTo={replyTo}
-            onCancelReply={() => setReplyTo(null)}
+            // replyTo={replyTo}
+            // onCancelReply={() => setReplyTo(null)}
           />
         </main>
       </div>
