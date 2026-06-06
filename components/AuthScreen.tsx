@@ -93,12 +93,12 @@ export default function AuthScreen({ onUser }: Props) {
           {busy ? "Please wait…" : mode === "login" ? "Sign In" : "Create Account"}
         </button>
 
-        <button
+        {/* <button
           className="btn btn-ghost"
           onClick={() => { setMode(m => m === "login" ? "register" : "login"); setErr(""); }}
         >
           {mode === "login" ? "No account? Register →" : "Have an account? Sign in →"}
-        </button>
+        </button> */}
       </div>
     </div>
   );
@@ -109,3 +109,8 @@ export default function AuthScreen({ onUser }: Props) {
 
 //ai@gmail.com
 //sumera@888
+
+// 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
+
+// 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
+// git remote set-url origin https://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@github.com/mobin-saiyad/chat-with-ai.git
