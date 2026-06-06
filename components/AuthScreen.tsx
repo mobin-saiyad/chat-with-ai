@@ -82,7 +82,7 @@ export default function AuthScreen({ onUser }: Props) {
             type="password"
             value={pass}
             onChange={e => setPass(e.target.value)}
-            placeholder="••••••••"
+            placeholder="•••••••"
             onKeyDown={onKey}
           />
         </div>
