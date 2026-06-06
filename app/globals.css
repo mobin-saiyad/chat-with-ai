@@ -659,3 +659,173 @@ body {
 @media (min-width: 768px) {
   .sidebar-close-btn { display: none !important; }
 }
+
+/* ══════════════════════════════════
+   NOTIFICATION TOGGLE ROW
+══════════════════════════════════ */
+.notif-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 13px 14px;
+  transition: opacity .2s;
+}
+.notif-row--disabled { opacity: .5; }
+
+.notif-row-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  min-width: 0;
+}
+
+.notif-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.notif-row-label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+.notif-row-status {
+  font-size: .72rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* pill toggle */
+.notif-toggle {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  border-radius: 999px;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .25s;
+  padding: 0;
+}
+.notif-toggle--on   { background: var(--accent); }
+.notif-toggle--disabled { cursor: not-allowed; }
+
+.notif-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.35);
+  transition: transform .25s cubic-bezier(.4,0,.2,1);
+  display: block;
+}
+.notif-toggle--on .notif-toggle-thumb {
+  transform: translateX(18px);
+}
+
+/* hint shown when browser has blocked notifications */
+.notif-hint {
+  font-size: .74rem;
+  color: var(--accent2);
+  line-height: 1.5;
+  padding: 0 2px;
+  margin-top: -8px;
+}
+
+/* ── reply preview inside bubble ── */
+.reply-preview {
+  border-radius: 10px;
+  padding: 7px 10px;
+  margin-bottom: 7px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: opacity .15s;
+  max-width: 100%;
+  overflow: hidden;
+}
+.reply-preview:hover { opacity: .8; }
+.reply-preview-me   { background: rgba(255,255,255,.12); border-left: 3px solid rgba(255,255,255,.5); }
+.reply-preview-them { background: rgba(93,95,239,.12);   border-left: 3px solid var(--accent); }
+.reply-preview-name {
+  font-size: .72rem; font-weight: 700;
+  color: var(--accent); white-space: nowrap;
+}
+.reply-preview-me .reply-preview-name { color: rgba(255,255,255,.8); }
+.reply-preview-text {
+  font-size: .8rem; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.reply-preview-me .reply-preview-text { color: rgba(255,255,255,.6); }
+
+/* ── reply banner above input ── */
+.reply-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  flex-shrink: 0;
+  animation: msg-in .18s ease;
+}
+@media (min-width: 768px) {
+  .reply-banner { padding: 10px 24px; }
+}
+.reply-banner-content {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 1px;
+}
+.reply-banner-name {
+  font-size: .75rem; font-weight: 700; color: var(--accent);
+}
+.reply-banner-text {
+  font-size: .8rem; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.reply-banner-close {
+  width: 28px; height: 28px; min-width: 28px;
+  border-radius: 8px; border: 1px solid var(--border);
+  background: var(--surface); cursor: pointer; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  transition: color .15s;
+}
+.reply-banner-close:hover { color: var(--accent2); }
+
+/* ── message action buttons (reply / delete) ── */
+.meta-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); padding: 4px 6px;
+  border-radius: 6px; font-size: .7rem;
+  display: flex; align-items: center; gap: 3px;
+  min-height: 28px;
+  transition: color .15s;
+}
+@media (pointer: fine) {
+  .meta-btn { opacity: 0; transition: opacity .15s, color .15s; }
+  .bubble-col:hover .meta-btn { opacity: 1; }
+}
+.reply-btn:hover { color: var(--accent); }
+.del-btn:hover   { color: var(--accent2); }
+
+/* ── highlight flash when jumping to quoted message ── */
+@keyframes highlight-flash {
+  0%   { background: rgba(93,95,239,.25); }
+  100% { background: transparent; }
+}
+.msg-row.highlight .bubble {
+  animation: highlight-flash 1.4s ease forwards;
+}

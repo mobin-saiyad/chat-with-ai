@@ -105,7 +105,7 @@ export default function AuthScreen({ onUser }: Props) {
 }
 
 // sumera@gmail.com
-// Mobin@888
+// Mobin@123
 
 //ai@gmail.com
 //sumera@888
