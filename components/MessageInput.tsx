@@ -94,9 +94,9 @@ export default function MessageInput({ onSend, uploading }: Props) {
             onChange={e => setText(e.target.value)}
             onKeyDown={onKey}
           />
-          <button className="icon-btn" onClick={() => fileRef.current?.click()} title="Attach photo">
+          {/* <button className="icon-btn" onClick={() => fileRef.current?.click()} title="Attach photo">
             <ImageIcon />
-          </button>
+          </button> */}
         </div>
 
         <button className="send-btn" onClick={handleSend} disabled={!canSend}>
